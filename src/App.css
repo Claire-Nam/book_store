@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: black;
+  color: white;
 }
 
 .App-logo {
@@ -35,4 +37,44 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* 캐러셀 스타일 */
+.carousel-item-custom {
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 550px;
+}
+
+.carousel-item-custom img {
+  height: 550px;
+  object-fit: cover; /*이미지 크기 고정*/
+}
+
+/* 베스트 셀러 컨테이너 스타일 */
+.project_header {
+  color: white;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px;
+}
+
+.hr {
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #dd0000;
+}
+
+.project_header_container {
+  margin-top: 120px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
