@@ -14,7 +14,7 @@ const bookDatas: Book[] = [
     content: "백엔드 입문서입니다.",
     price: 34000,
     author: "이창현",
-    star: "*****",
+    star: "⭐⭐⭐⭐⭐",
   },
   {
     id: 5,
@@ -22,7 +22,7 @@ const bookDatas: Book[] = [
     content: "코딩 입문서입니다.",
     price: 22000,
     author: "이창현",
-    star: "*****",
+    star: "⭐⭐⭐⭐⭐",
   },
   {
     id: 6,
@@ -30,7 +30,7 @@ const bookDatas: Book[] = [
     content: "닷넷 입문서입니다.",
     price: 26000,
     author: "이창현",
-    star: "*****",
+    star: "⭐⭐⭐⭐⭐",
   },
 ];
 

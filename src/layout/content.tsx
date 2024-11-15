@@ -1,8 +1,18 @@
 import { useState } from "react";
-import { Card, Col, Container, Nav, Navbar, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Nav,
+  Navbar,
+  Row,
+} from "react-bootstrap";
 import MyCarousel from "../components/carousel";
 import "../App.css";
 import bookDatas, { Book } from "../data/bookData";
+import { Link } from "react-router-dom";
+import BookItem from "../components/bookItem";
 
 const Content: React.FC = () => {
   let [books, setBooks] = useState<Book[]>(bookDatas);
@@ -33,26 +43,7 @@ const Content: React.FC = () => {
           </div>
           <Row className="text-centre">
             {books.map((book) => (
-              <Col key={book.id} className="box p-4">
-                <Card
-                  className="border rounded shadow-sm p-3"
-                  style={{ height: "500px", width: "330px" }}
-                >
-                  <Card.Body>
-                    <Card.Img
-                      variant="top"
-                      src={`${process.env.PUBLIC_URL}/img/${book.id + 1}.jpg`}
-                      style={{
-                        height: "240px",
-                        width: "173px",
-                        objectFit: "cover",
-                      }}
-                      alt={book.title}
-                    ></Card.Img>
-                  </Card.Body>
-                </Card>
-                {book.title}
-              </Col>
+              <BookItem key={book.id} book={book} /> // book={book} 이 프롭스
             ))}
           </Row>
         </Container>
