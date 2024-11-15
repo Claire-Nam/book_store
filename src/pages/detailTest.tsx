@@ -56,23 +56,28 @@ const PD: React.FC = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log("마운트");
+    // 타이머
+    const interval = setInterval(() => {
+      setCount((preCount) => preCount + 1);
+    }, 1000);
     return () => {
       console.log("언마운트");
     };
   }, []);
 
-  useEffect(() => {
-    console.log("업데이트");
-  }, [count]);
-
   return (
     <div>
       {/* <p>Count: {count}</p>
       <button onClick={() => setCount(count + 1)}>증가</button> */}
-      <h1>타이머: 1초</h1>
+      <h1>타이머: {count}초</h1>
     </div>
   );
 };
 
 export default PD;
+
+// setCount(preCount => preCount + 1);
+// setCount(function(preCount) {
+//   return preCount + 1;
+// });
+// preCount: 현재까지 누적된 카운트의 값
