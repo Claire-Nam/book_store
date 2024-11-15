@@ -1,6 +1,7 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useLocation, useParams } from "react-router-dom";
 import { Book } from "../data/bookData";
+import { useEffect } from "react";
 
 interface LocationState {
   book: Book;
@@ -12,6 +13,27 @@ const ProductDetail: React.FC = () => {
   const { state } = location as { state: LocationState }; // bookItem에서 state로 넘어온 BookData (일종의 프롭스);
 
   const book = state?.book;
+
+  // 1회성 팝업창 띄우기
+  useEffect(() => {
+    const popup = window.open("", "_blank", "width=400, height=300");
+    if (popup) {
+      popup.document.write(
+        `<html>
+                <head>
+                    <title>초특가 할인</title>
+                </head>
+                 <body style="display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background-color: #FEF2C1; color: white; flex-direction: column;">
+                        <h1 style="margin: 0; font-size: 2em; font-weight: bold;">전 도서 20% 할인!!</h1>
+                        <h3 style="margin-top: 10px;">완전 럭키비키잖아</h3>
+                    </body>
+            </html>`
+      );
+      return () => {
+        if (popup) popup.close();
+      };
+    }
+  }, []);
 
   return (
     <div>
