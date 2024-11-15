@@ -10,6 +10,7 @@ import Login from "../pages/login";
 import Cart from "../pages/cart";
 import ProductDetail from "../pages/detail";
 import Home from "../pages/home";
+import PD from "../pages/detailTest";
 
 const Content: React.FC = () => {
   let [books, setBooks] = useState<Book[]>(bookDatas);
@@ -37,9 +38,15 @@ const Content: React.FC = () => {
         <Route path="/about" element={<About />}></Route>
         <Route path="/list" element={<List />}></Route>
         <Route path="contacts" element={<Contact />}></Route>
-        <Route path="/detail" element={<ProductDetail />}></Route>
+        <Route path="/detail/:sku" element={<ProductDetail />}></Route>
+        <Route path="/detail/pd" element={<PD />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
+        <Route
+          path="*"
+          element={"페이지가 존재하지 않습니다. URL을 확인해주세요."}
+        ></Route>
+        {/* path="*"는 상기 지정한 패스 경로 이외의 모든 경로를 의미*/}
       </Routes>
     </div>
   );

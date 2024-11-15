@@ -1,6 +1,18 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { useLocation, useParams } from "react-router-dom";
+import { Book } from "../data/bookData";
+
+interface LocationState {
+  book: Book;
+}
 
 const ProductDetail: React.FC = () => {
+  const { sku } = useParams<{ sku: string }>();
+  const location = useLocation();
+  const { state } = location as { state: LocationState }; // bookItem에서 state로 넘어온 BookData (일종의 프롭스);
+
+  const book = state?.book;
+
   return (
     <div>
       <Container className="mt-5">
@@ -9,7 +21,7 @@ const ProductDetail: React.FC = () => {
             <Card className="border-0">
               <Card.Img
                 variant="top"
-                src={process.env.PUBLIC_URL + "/img/5.jpg"}
+                src={process.env.PUBLIC_URL + "/img/" + (book.id + 1) + ".jpg"}
                 style={{ borderRadius: "8px" }}
               ></Card.Img>
             </Card>
@@ -18,13 +30,13 @@ const ProductDetail: React.FC = () => {
             <Card className="border-0">
               <Card.Body>
                 <Card.Title as="h2" className="mb-4">
-                  모던 자바스크립트 & Node.JS
+                  {book.title}
                 </Card.Title>
-                <Card.Text as="h4" className="text-muted mb-4">
-                  입문자를 위한 백엔드 도서입니다.
+                <Card.Text as="h5" className="text-muted mb-4">
+                  {book.content}
                 </Card.Text>
-                <Card.Text as="h5" className="text-primary mb-4">
-                  32,900원
+                <Card.Text as="p" className="text-primary mb-4">
+                  {book.price}원
                 </Card.Text>
                 <Button
                   variant="outline-danger"
