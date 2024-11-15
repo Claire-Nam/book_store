@@ -68,8 +68,9 @@ const PD: React.FC = () => {
 
   return (
     <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>증가</button>
+      {/* <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>증가</button> */}
+      <h1>타이머: 1초</h1>
     </div>
   );
 };
