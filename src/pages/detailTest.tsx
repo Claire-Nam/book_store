@@ -1,4 +1,4 @@
-import { Component, ReactNode, useEffect } from "react";
+import { Component, ReactNode, useEffect, useState } from "react";
 
 interface LifeCycleState {
   count: number;
@@ -38,11 +38,40 @@ interface LifeCycleState {
 // }
 
 // 함수형 컴포넌트
-useEffect(() => {
-  // 실행 코드
-  return () => {
-    // 콜백함수(= 클린업 함수)
-  };
-}, []);
+// useEffect(() => {
+//   // 실행 코드
+//   return () => {
+//     // 콜백함수(= 클린업 함수)
+//   };
+// }, [의존성배열]);
+
+// useEffect(() => {
+//   // 실행코드: 컴포넌트의 렌더링이 모두 완료된 시점에 실행
+//   return () => {
+//     // 클린업 함수: 컴포넌트의 언마운트 (정리 작업)
+//   }
+// }, [state])  // state 값이 비어있으면 처음 한번만 실행되고, state 값이 존재할 땐, 업데이트 될 때마다 실행됨
+
+const PD: React.FC = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log("마운트");
+    return () => {
+      console.log("언마운트");
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("업데이트");
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>증가</button>
+    </div>
+  );
+};
 
 export default PD;
