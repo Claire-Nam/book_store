@@ -4,12 +4,13 @@ import "./App.css";
 import { Button } from "react-bootstrap";
 import Content from "./layout/content";
 import Footer from "./layout/footer";
-import HookRef from "./hookTest";
+import { HookMemo } from "./hookTest";
 
 function App() {
   return (
     <div className="App">
-      <HookRef />
+      {/* <HookRef /> */}
+      <HookMemo />
       <Content />
       <Footer />
     </div>
