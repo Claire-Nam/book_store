@@ -1,18 +1,15 @@
 import { useState } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Container,
-  Nav,
-  Navbar,
-  Row,
-} from "react-bootstrap";
-import MyCarousel from "../components/carousel";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import "../App.css";
 import bookDatas, { Book } from "../data/bookData";
-import { Link } from "react-router-dom";
-import BookItem from "../components/bookItem";
+import { Route, Routes } from "react-router-dom";
+import About from "../pages/about";
+import List from "../pages/products";
+import Contact from "../pages/contact";
+import Login from "../pages/login";
+import Cart from "../pages/cart";
+import ProductDetail from "../pages/detail";
+import Home from "../pages/home";
 
 const Content: React.FC = () => {
   let [books, setBooks] = useState<Book[]>(bookDatas);
@@ -33,21 +30,17 @@ const Content: React.FC = () => {
           </Nav>
         </Container>
       </Navbar>
-      <div>
-        <MyCarousel />
 
-        <Container>
-          <div className="project_header_container">
-            <h2 className="project_header">베스트 셀러</h2>
-            <div className="hr"></div>
-          </div>
-          <Row className="text-centre">
-            {books.map((book) => (
-              <BookItem key={book.id} book={book} /> // book={book} 이 프롭스
-            ))}
-          </Row>
-        </Container>
-      </div>
+      {/* 라우터 설정 */}
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/list" element={<List />}></Route>
+        <Route path="contacts" element={<Contact />}></Route>
+        <Route path="/detail" element={<ProductDetail />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+      </Routes>
     </div>
   );
 };

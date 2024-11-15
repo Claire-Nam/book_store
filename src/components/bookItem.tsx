@@ -44,7 +44,7 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
           </div>
           <p></p>
           <div>
-            <Link to="/">
+            <Link to="/detail">
               <Button variant="outline-danger">자세히 보기</Button>
             </Link>
           </div>
