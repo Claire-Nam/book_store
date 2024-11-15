@@ -19,7 +19,7 @@ const bookDatas: Book[] = [
   {
     id: 5,
     title: "내 생에 첫번째 코딩 앱 인벤터",
-    content: "코딩 입문서입니다.",
+    content: "코딩을 처음 시작하는 초보자를 위한 입문서입니다.",
     price: 22000,
     author: "이창현",
     star: "⭐⭐⭐⭐⭐",
@@ -27,7 +27,7 @@ const bookDatas: Book[] = [
   {
     id: 6,
     title: "C# 프로그래밍 정석",
-    content: "닷넷 입문서입니다.",
+    content: "닷넷을 시작하는 초보자를 위한 입문서입니다.",
     price: 26000,
     author: "이창현",
     star: "⭐⭐⭐⭐⭐",
