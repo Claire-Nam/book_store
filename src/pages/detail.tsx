@@ -35,6 +35,16 @@ const ProductDetail: React.FC = () => {
     }
   }, []);
 
+  // 리액트훅 : 스테이트관리 & 라이프사이클 관리
+  // 1. useState
+  // 2. useEffect : 부가적인 효과(마운트, 언마운트 등)를 처리하려고 만들어 놓은 것.
+  // 3. 사이트이펙트 : 의도하지 않은 결과값이 발생했을 때
+  // 4. useContext: state를 전역적으로 사용할 때 쓰는 훅
+  // 5. useReducer: 리덕스에서 사용
+  // 6. useRef: 참조할 때
+  // 7. useMemo: 메모할...때....?
+  // 8. useCallback: 콜백함수 사용 시...?
+
   return (
     <div>
       <Container className="mt-5">
