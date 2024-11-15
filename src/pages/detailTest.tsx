@@ -61,6 +61,7 @@ const PD: React.FC = () => {
       setCount((preCount) => preCount + 1);
     }, 1000);
     return () => {
+      clearInterval(interval);
       console.log("언마운트");
     };
   }, []);
@@ -73,6 +74,10 @@ const PD: React.FC = () => {
     </div>
   );
 };
+
+// 의존성 배열을 통한 제어
+// [] 는 마운트 될 때 한번만 실행 > useEffect를 사용하지 않으면 재렌더링 할때마다 타이머 재생성
+// cleanup 함수를 통해 정리 > 컴포넌트가 언마운트 되는 시점에 메모리에서 계속 동작하지 않도록 타이머 해제
 
 export default PD;
 
