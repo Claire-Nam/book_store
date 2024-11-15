@@ -1,8 +1,8 @@
 import { Component, ReactNode, useEffect, useState } from "react";
 
-interface LifeCycleState {
-  count: number;
-}
+// interface LifeCycleState {
+//   count: number;
+// }
 
 // 컴포넌트의 생명주기(마운트, 언마운트)
 // class PD extends Component<{}, LifeCycleState> {
@@ -53,24 +53,51 @@ interface LifeCycleState {
 // }, [state])  // state 값이 비어있으면 처음 한번만 실행되고, state 값이 존재할 땐, 업데이트 될 때마다 실행됨
 
 const PD: React.FC = () => {
-  const [count, setCount] = useState(0);
+  //   const [count, setCount] = useState(0);
+
+  //   useEffect(() => {
+  //     // 타이머
+  //     const interval = setInterval(() => {
+  //       setCount((preCount) => preCount + 1);
+  //     }, 1000);
+  //     return () => {
+  //       clearInterval(interval);
+  //       console.log("언마운트");
+  //     };
+  //   }, []);
+
+  //   return (
+  //     <div>
+  //       {/* <p>Count: {count}</p>
+  //       <button onClick={() => setCount(count + 1)}>증가</button> */}
+  //       <h1>타이머: {count}초</h1>
+  //     </div>
+  //   );
+
+  // API 요청
+  const [breeds, setBreeds] = useState([]);
 
   useEffect(() => {
-    // 타이머
-    const interval = setInterval(() => {
-      setCount((preCount) => preCount + 1);
-    }, 1000);
-    return () => {
-      clearInterval(interval);
-      console.log("언마운트");
+    const fetchData = async () => {
+      try {
+        const res = await fetch("https://api.thedogapi.com/v1/breeds");
+        const data = await res.json();
+        setBreeds(data);
+      } catch (err) {
+        console.log("에러: ", err);
+      }
     };
+    fetchData();
   }, []);
 
   return (
     <div>
-      {/* <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>증가</button> */}
-      <h1>타이머: {count}초</h1>
+      <h2>강아지 종류</h2>
+      <ul>
+        {breeds.map((item: any) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
     </div>
   );
 };
