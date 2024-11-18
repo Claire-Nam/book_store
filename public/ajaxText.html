@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. xhr 비동기 통신
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://api.thedogapi.com/v1/breeds", true);
+
+      // onreadystatechange는 객체의 상태가 변경될때마다 호출되는 이벤트핸들러 함수
+      xhr.onreadystatechange = function () {
+        // readyState === 4: 요청 완료
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          console.log(data);
+        }
+      };
+      xhr.onerror = function () {
+        console.log("Request Fail");
+      };
+
+      //   서버에 요청
+      xhr.send();
+    </script>
+  </body>
+</html>
