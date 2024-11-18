@@ -39,7 +39,7 @@ const Content: React.FC = () => {
         <Route path="/list" element={<List />}></Route>
         <Route path="contacts" element={<Contact />}></Route>
         <Route path="/detail/:sku" element={<ProductDetail />}></Route>
-        <Route path="/detail/pd" element={<PD />}></Route>
+        {/* <Route path="/detail/pd" element={<PD />}></Route> */}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route
