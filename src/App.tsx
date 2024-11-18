@@ -4,7 +4,7 @@ import "./App.css";
 import { Button } from "react-bootstrap";
 import Content from "./layout/content";
 import Footer from "./layout/footer";
-import { HookCallback } from "./hookTest";
+// import { HookCallback } from "./hookTest";
 // import { HookMemo } from "./hookTest";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       {/* <HookRef /> */}
       {/* <HookMemo /> */}
-      <HookCallback />
+      {/* <HookCallback /> */}
       <Content />
       <Footer />
     </div>
