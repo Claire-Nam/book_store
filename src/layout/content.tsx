@@ -11,6 +11,8 @@ import Cart from "../pages/cart";
 import ProductDetail from "../pages/detail";
 import Home from "../pages/home";
 import PD from "../pages/detailTest";
+// import { IoPersonCircleOutline } from "react-icons/io5";
+import { PersonFill } from "react-bootstrap-icons";
 
 const Content: React.FC = () => {
   let [books, setBooks] = useState<Book[]>(bookDatas);
@@ -28,6 +30,12 @@ const Content: React.FC = () => {
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/list">Product</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link href="/login" className="d-flex align-items-center">
+              <PersonFill className="me-2" size={20}></PersonFill>
+              Log-in
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
